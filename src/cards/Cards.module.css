@@ -1,0 +1,122 @@
+.heading{
+    display: inline block;
+    /* margin-top: 25px; */
+  margin-left: 39%;
+    width: 400px;
+height: 40px;
+    
+}
+
+.bg{
+    border: 1px solid black;
+    height: 65vh;
+    max-width: 40%;
+    border-radius: 46px 46px 46px 46px;
+    background-color: gray;
+    /* min-width: 150px; */
+    display: inline-block;
+    min-width: 250px;
+    padding: 60px;
+}
+
+.bgNight{
+    border: 1px solid gray;
+    height: 65vh;
+    max-width: 40%;
+    border-radius: 46px 46px 46px 46px;
+    background-color: rgb(37, 8, 8);
+    /* min-width: 150px; */
+    display: inline-block;
+    min-width: 250px;
+    padding: 60px;
+}
+
+.logo{
+    margin-top: -20px;
+    height: 10%;
+    font-size: 16px;
+}
+
+.logoNight{
+    height: 10%;
+    color: azure;
+    font-size: 16px;
+}
+
+.name{
+    color: black;
+}
+
+.nameNight{
+    color: azure;
+}
+
+.mode{
+    display: inline block;
+    margin-top: 25px;
+  margin-left: 0%;
+    width: 400px;
+height: 40px;
+color:black;
+border: 1px solid gray;
+background-color: springgreen
+}
+
+.HowTo{
+    font-size: 1em;
+}
+
+.description{
+    font-size: 24px;
+    margin: 10% 0%;
+}
+
+button{
+    width: 90%;
+    height: 10%;
+    margin-left: 5.5%;
+    border-radius: 8px;
+    background-color:springgreen;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.abilities{
+    display: flex;
+    justify-content: space-between;
+}
+
+.ability{
+    border: 1px solid black;
+    background-color: sandybrown;
+    border-radius: 8px;
+    height: 40px;
+    margin-top: -15px;
+    text-align:center;
+    padding: 5px 8px;
+}
+
+
+.buttonAlign{
+    display: flex;
+    height: 6%;   
+}
+
+.BtnLike{
+  width: 100%;
+  height: 200%;
+  margin-right: 5%;
+}
+
+.BtnDislike{
+    background-color:pink;
+    width: 100%;
+    height: 200%;
+}
+
+.imageSet{
+   margin-top: -3%;
+    margin-left: 4%;
+    height: 400px;
+    width: 600px;
+}
