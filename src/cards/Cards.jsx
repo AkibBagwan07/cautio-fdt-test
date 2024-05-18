@@ -43,7 +43,7 @@ const Cards = ({image,data}) => {
         ()
     },[changeData])
    
-    useEffect(() => { localStorage.setItem('data', JSON.stringify([changedData])); }, [saveData]);
+    useEffect(() => {localStorage.setItem('data', JSON.stringify([changedData])); }, [saveData]);
     
     return (
     <div> {changedData && <div>
@@ -52,7 +52,7 @@ const Cards = ({image,data}) => {
 
         <div className={!lightDarkMode ? styles.bg :styles.bgNight}>
             <div className={!lightDarkMode ? styles.logo :styles.logoNight}>
-               <h4>select your Favourite Pokemon</h4> 
+               <h4>Select your Favourite Pokemon</h4> 
             </div>
             <svg style={{marginLeft:"4%"}} width="250" height="200">       
       <image href={imageMaker} width="250"  height="200"/>

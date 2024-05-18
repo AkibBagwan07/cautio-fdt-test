@@ -2,7 +2,7 @@ import React, { useState ,useEffect} from 'react'
 import styles from "./StartCard.module.css"
 import Cards from '../cards/Cards'
 import axios from "axios"
-
+import logo from "../resources/pokemon.png"
 const StartCard = () => {
     const [showCards,setShowCards] = useState(false)
     const [characterData,setCharacterData] = useState([])
@@ -40,7 +40,7 @@ const StartCard = () => {
         <h1 className={styles.heading}>PokeAPI</h1>
         <div className={styles.bg}>
             <div className={styles.logo}>
-                logo
+                <img src={logo} alt="logo" />
             </div>
             <div className={styles.typoParent}>
           <div className={styles.HowTo}>
