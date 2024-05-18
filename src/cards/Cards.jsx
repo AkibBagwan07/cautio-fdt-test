@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Cards.module.css"
 import axios from "axios"
+import LikedPokemon from '../likedPokemon/LikedPokemon'
 
 const Cards = ({image,data}) => {
    
@@ -10,6 +11,9 @@ const Cards = ({image,data}) => {
   const [imageMaker,setImageMaker] = useState(null)
   const [lightDarkMode,setLightDarkMode] = useState(null)
   const [saveData,setSaveData] = useState(null)
+  const [dataOfSessionStorage,setDataOfSessionStorage] = useState()
+  const [navigateToLikedPok,setNavigateToLikedPok] = useState(false)
+
   const setMode = () =>{
     setLightDarkMode(!lightDarkMode)
   }
@@ -17,8 +21,6 @@ const Cards = ({image,data}) => {
   const handleLikeChangeData =() =>{
     setChangeData(!changeData)
     setSaveData(!saveData)
-    // const currData = sessionStorage.getItem("data")
-    // console.log(currData)
   }
 
   const handleDisikeChangeData =() =>{
@@ -35,7 +37,7 @@ const Cards = ({image,data}) => {
           
             try {
           const data = await axios.get(API)
-          // console.log(data.data)
+           console.log(data.data)
           setChangedData(data.data)
           setImageMaker(currImageMaker)
         } catch (error) {
@@ -45,12 +47,25 @@ const Cards = ({image,data}) => {
         ()
     },[changeData])
    
-    useEffect(() => {sessionStorage.setItem('data', JSON.stringify({"name": changedData && changedData.forms.map((curr)=>curr.name) , "image" : imageMaker})); }, [saveData]);
+    useEffect(() => {
+     let newObj ={
+        name: changedData?.forms.map((curr)=>curr.name),
+        abilities: changedData?.abilities.map((curr)=>curr.ability.name),
+        imageURL: imageMaker
+        }
+        
+        const currData = JSON.parse(sessionStorage.getItem('data')) || []
+        sessionStorage.setItem('data', JSON.stringify([...currData, newObj]))
+        setDataOfSessionStorage(currData)
+  
+    }, [saveData]);
     
     return (
-    <div> {changedData && <div key={changedData.id}>
+    <div> { navigateToLikedPok===true ? <LikedPokemon data={dataOfSessionStorage}/> : <div> {changedData && <div key={changedData.id}>
       <div className={styles.headAndBtn}>
-       <button className={styles.likedPokemons}>Liked Pokemon's</button> <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
+       <button onClick={()=>{
+           setNavigateToLikedPok(true)
+       }} className={styles.likedPokemons}>Liked Pokemon's</button> <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
 
         <div className={!lightDarkMode ? styles.bg :styles.bgNight}>
             <div className={!lightDarkMode ? styles.logo :styles.logoNight}>
@@ -73,7 +88,7 @@ const Cards = ({image,data}) => {
           </div>
         </div>  
         <div className={styles.multiple}></div>
-        <div className={styles.multiple2}></div></div>}
+        <div className={styles.multiple2}></div></div>}</div>}
     </div>
   )
 }
