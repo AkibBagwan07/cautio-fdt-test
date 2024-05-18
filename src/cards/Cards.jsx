@@ -17,6 +17,8 @@ const Cards = ({image,data}) => {
   const handleLikeChangeData =() =>{
     setChangeData(!changeData)
     setSaveData(!saveData)
+    // const currData = sessionStorage.getItem("data")
+    // console.log(currData)
   }
 
   const handleDisikeChangeData =() =>{
@@ -33,7 +35,7 @@ const Cards = ({image,data}) => {
           
             try {
           const data = await axios.get(API)
-          console.log(data.data)
+          // console.log(data.data)
           setChangedData(data.data)
           setImageMaker(currImageMaker)
         } catch (error) {
@@ -43,10 +45,10 @@ const Cards = ({image,data}) => {
         ()
     },[changeData])
    
-    useEffect(() => {localStorage.setItem('data', JSON.stringify([changedData])); }, [saveData]);
+    useEffect(() => {sessionStorage.setItem('data', JSON.stringify({"name": changedData && changedData.forms.map((curr)=>curr.name) , "image" : imageMaker})); }, [saveData]);
     
     return (
-    <div> {changedData && <div>
+    <div> {changedData && <div key={changedData.id}>
       <div className={styles.headAndBtn}>
        <button className={styles.likedPokemons}>Liked Pokemon's</button> <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
 

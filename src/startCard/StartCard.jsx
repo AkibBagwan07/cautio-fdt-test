@@ -25,7 +25,7 @@ const StartCard = () => {
         (async function(){
             try {
           const data = await axios.get(API)
-          console.log(data.data)
+          // console.log(data.data)
           setCharacterData(data.data)
           setImageUrl(imageMaker)
             } catch (error) {
