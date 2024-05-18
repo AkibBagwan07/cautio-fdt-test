@@ -1,10 +1,11 @@
 .heading{
-    display: inline block;
-    /* margin-top: 25px; */
-  margin-left: 39%;
-    width: 400px;
-height: 40px;
-    
+    max-width: fit-content;
+    margin-left: 45%;
+    margin-right: auto;
+}
+
+.headAndBtn{
+    display: flex;
 }
 
 .bg{
@@ -55,11 +56,13 @@ height: 40px;
     display: inline block;
     margin-top: 25px;
   margin-left: 0%;
-    width: 400px;
+    width: 200px;
+    margin-right: 12%;
 height: 40px;
 color:black;
 border: 1px solid gray;
-background-color: springgreen
+background-color: springgreen;
+font-size: 16px;
 }
 
 .HowTo{

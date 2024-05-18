@@ -9,13 +9,14 @@ const Cards = ({image,data}) => {
   const [changedData,setChangedData] = useState(null)
   const [imageMaker,setImageMaker] = useState(null)
   const [lightDarkMode,setLightDarkMode] = useState(null)
-  
+  const [saveData,setSaveData] = useState(null)
   const setMode = () =>{
     setLightDarkMode(!lightDarkMode)
   }
-
+ 
   const handleLikeChangeData =() =>{
     setChangeData(!changeData)
+    setSaveData(!saveData)
   }
 
   const handleDisikeChangeData =() =>{
@@ -42,10 +43,13 @@ const Cards = ({image,data}) => {
         ()
     },[changeData])
    
-
+    useEffect(() => { localStorage.setItem('data', JSON.stringify([changedData])); }, [saveData]);
+    
     return (
     <div> {changedData && <div>
-        <h1 className={styles.heading}>PokeAPI</h1>
+      <div className={styles.headAndBtn}>
+        <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
+
         <div className={!lightDarkMode ? styles.bg :styles.bgNight}>
             <div className={!lightDarkMode ? styles.logo :styles.logoNight}>
                <h4>select your Favourite Pokemon</h4> 
@@ -68,7 +72,6 @@ const Cards = ({image,data}) => {
         </div>  
         <div className={styles.multiple}></div>
         <div className={styles.multiple2}></div></div>}
-        <button className={styles.mode} onClick={setMode}>change MODE</button>
     </div>
   )
 }

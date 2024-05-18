@@ -2,6 +2,7 @@
   "name": "cautio-fdt-test",
   "version": "0.1.0",
   "private": true,
+  "editor.fontFamily": "Boom Comic, Menlo, Monaco, 'Courier New', monospace",
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
