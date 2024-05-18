@@ -5,7 +5,9 @@ import axios from "axios"
 import LikedPokemon from '../likedPokemon/LikedPokemon'
 
 const Cards = ({image,data}) => {
-   
+
+   // used states for updating data and doing some conditional rendering
+
   const [changeData,setChangeData] = useState(false)
   const [changedData,setChangedData] = useState(null)
   const [imageMaker,setImageMaker] = useState(null)
@@ -14,20 +16,26 @@ const Cards = ({image,data}) => {
   const [dataOfSessionStorage,setDataOfSessionStorage] = useState()
   const [navigateToLikedPok,setNavigateToLikedPok] = useState(false)
 
+
+  // setMode function is used to make change the ui mode to day/night
   const setMode = () =>{
     setLightDarkMode(!lightDarkMode)
   }
  
+
+ // used handleLikeChangeData for change the card and change the state of saveData for side-effect / saving the data to sessionStorage if liked by user
   const handleLikeChangeData =() =>{
     setChangeData(!changeData)
     setSaveData(!saveData)
   }
 
+// used handleDisikeChangeData for change the card 
   const handleDisikeChangeData =() =>{
     setChangeData(!changeData)
   }
  
     // console.log(imageMaker)
+    //api call to get the next fresh data for next cards of pokemons
     useEffect(()=>{
         (async function(){
           let random = Math.floor(Math.random()*100)
@@ -47,6 +55,8 @@ const Cards = ({image,data}) => {
         ()
     },[changeData])
    
+
+    //used for getting data and adding the liked card's data to sessionStorage
     useEffect(() => {
      let newObj ={
         name: changedData?.forms.map((curr)=>curr.name),
