@@ -48,7 +48,7 @@ const Cards = ({image,data}) => {
     return (
     <div> {changedData && <div>
       <div className={styles.headAndBtn}>
-        <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
+       <button className={styles.likedPokemons}>Liked Pokemon's</button> <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
 
         <div className={!lightDarkMode ? styles.bg :styles.bgNight}>
             <div className={!lightDarkMode ? styles.logo :styles.logoNight}>

@@ -1,11 +1,25 @@
 .heading{
     max-width: fit-content;
-    margin-left: 45%;
-    margin-right: auto;
+    margin-left: 50px;
 }
 
 .headAndBtn{
     display: flex;
+    justify-content: space-between;
+}
+
+.likedPokemons{
+   width: 200px;
+   height: 40px;
+   margin-left: 12%;
+   color: white;
+   padding: 0px 15px;
+   cursor: pointer;
+   background-color:#CE4E4E;
+   font-size: 16px;
+   max-width: fit-content;
+   margin-top: 28px;
+   border:1px solid gray ;
 }
 
 .bg{
