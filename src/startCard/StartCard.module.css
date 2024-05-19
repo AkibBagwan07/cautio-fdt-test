@@ -24,7 +24,12 @@ img{
 
 .logo{
     height: 10%;
-   
+    width: 200px;
+    object-fit: contain;
+}
+
+img{
+    width: 320px;
 }
 
 .HowTo{

@@ -75,7 +75,8 @@ const Cards = ({image,data}) => {
       <div className={styles.headAndBtn}>
        <button onClick={()=>{
            setNavigateToLikedPok(true)
-       }} className={styles.likedPokemons}>Liked Pokemon's</button> <h1 className={styles.heading}>PokeAPI</h1><button className={styles.mode} onClick={setMode}>Day / Night</button></div>
+       }} className={styles.likedPokemons}>Liked Pokemon's</button><img className={styles.pokeApi} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRP4-N-ufAv_ayZBkdF2AAZ0ACrMTvk_ZPhE7cL9hWTKw&s" alt="" />
+       <button className={styles.mode} onClick={setMode}>Day / Night</button></div>
 
         <div className={!lightDarkMode ? styles.bg :styles.bgNight}>
             <div className={!lightDarkMode ? styles.logo :styles.logoNight}>

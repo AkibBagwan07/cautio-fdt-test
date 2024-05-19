@@ -138,3 +138,9 @@ button{
     height: 400px;
     width: 600px;
 }
+
+.pokeApi{
+    height: 60px;
+    width: 15%;
+    margin-bottom: 1%;
+}

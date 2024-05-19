@@ -23,7 +23,7 @@ const StartCard = () => {
     // console.log(imageMaker)
     useEffect(()=>{
         (async function(){
-            try {
+            try { 
           const data = await axios.get(API)
           // console.log(data.data)
           setCharacterData(data.data)
