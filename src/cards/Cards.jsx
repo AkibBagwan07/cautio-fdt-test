@@ -8,7 +8,7 @@ const Cards = ({image,data}) => {
 
    // used states for updating data and doing some conditional rendering
 
-  const [changeData,setChangeData] = useState(false)
+  const [checkToChangeData,setCheckToChangeData] = useState(false)
   const [changedData,setChangedData] = useState(null)
   const [imageMaker,setImageMaker] = useState(null)
   const [lightDarkMode,setLightDarkMode] = useState(null)
@@ -25,13 +25,13 @@ const Cards = ({image,data}) => {
 
  // used handleLikeChangeData for change the card and change the state of saveData for side-effect / saving the data to sessionStorage if liked by user
   const handleLikeChangeData =() =>{
-    setChangeData(!changeData)
+    setCheckToChangeData(!checkToChangeData)
     setSaveData(!saveData)
   }
 
 // used handleDisikeChangeData for change the card 
   const handleDisikeChangeData =() =>{
-    setChangeData(!changeData)
+    setCheckToChangeData(!checkToChangeData)
   }
  
     // console.log(imageMaker)
@@ -53,7 +53,7 @@ const Cards = ({image,data}) => {
             }
         })
         ()
-    },[changeData])
+    },[checkToChangeData])
    
 
     //used for getting data and adding the liked card's data to sessionStorage
